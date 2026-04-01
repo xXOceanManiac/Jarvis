@@ -1,0 +1,111 @@
+{
+  "openai_api_key": "",
+  "realtime_model": "gpt-realtime",
+  "voice": "arbor",
+  "sample_rate_out": 24000,
+  "sample_rate_in": 16000,
+  "mic_device": null,
+  "speaker_blocksize": 2048,
+  "screenshot_dir": "~/Pictures/Screenshots",
+  "projector_on_script": "~/.jarvis/projector_on.sh",
+  "projector_off_script": "~/.jarvis/projector_off.sh",
+  "apps": {
+    "chrome": "google-chrome",
+    "browser": "google-chrome",
+    "code": "code",
+    "vscode": "code",
+    "terminal": "konsole",
+    "files": "dolphin",
+    "spotify": "spotify",
+    "discord": "discord",
+    "obsidian": "obsidian"
+  },
+  "modes": {
+    "lock_in": [
+      "google-chrome",
+      "code",
+      "konsole"
+    ],
+    "movie": [
+      "google-chrome"
+    ]
+  },
+  "urls": {
+    "youtube": "https://youtube.com",
+    "gmail": "https://mail.google.com",
+    "calendar": "https://calendar.google.com",
+    "chatgpt": "https://chatgpt.com",
+    "site_mgr_msf": "http://microschoolflorida.com/sitemgr/design/page-editor/",
+    "clickfunnels": "https://www.clickfunnels.com/",
+    "zohoflow": "https://www.zoho.com/flow/login.html",
+    "trello_msf": "https://trello.com/b/ffPDvkmm/microschool-websites"
+  },
+  "ptt_key": "esc",
+  "ptt_hold_seconds": 0.25,
+  "projects": {
+    "jarvis": {
+      "path": "/home/tatel/Desktop/Jarvis.v2"
+    },
+    "microschoolflorida": {
+      "path": "/home/tatel/Desktop/microschoolflorida"
+    }
+  },
+  "routines": {
+    "microschool_website_changes": {
+      "context_name": "Microschool Florida Website Changes",
+      "apps": [
+        "spotify",
+        "chrome"
+      ],
+      "url_keys": [
+        "chatgpt",
+        "site_mgr_msf",
+        "clickfunnels",
+        "zohoflow",
+        "trello_msf"
+      ],
+      "layout": "microschool_web",
+      "tags": [
+        "website",
+        "microschool",
+        "marketing",
+        "cloud"
+      ],
+      "description": "Open the Microschool Florida cloud website editing stack.",
+      "steps": [
+        {
+          "action": "open_app",
+          "app": "spotify"
+        },
+        {
+          "action": "open_url_keys",
+          "url_keys": [
+            "chatgpt",
+            "site_mgr_msf",
+            "clickfunnels",
+            "zohoflow",
+            "trello_msf"
+          ]
+        }
+      ]
+    },
+    "movie_mode_full": {
+      "description": "Turn on movie mode through Home Assistant.",
+      "steps": [
+        {
+          "action": "run_ha_script",
+          "script_name": "movie_mode_full"
+        }
+      ]
+    },
+    "netflix_on_xbox": {
+      "description": "Launch Netflix on Xbox through Home Assistant.",
+      "steps": [
+        {
+          "action": "run_ha_script",
+          "script_name": "netflix_on_xbox"
+        }
+      ]
+    }
+  }
+}

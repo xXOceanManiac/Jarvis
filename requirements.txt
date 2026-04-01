@@ -1,0 +1,9 @@
+numpy
+sounddevice
+websockets>=16.0
+orjson
+python-dotenv
+pynput>=1.8.0
+PyQt6>=6.6.0
+resampy
+requests

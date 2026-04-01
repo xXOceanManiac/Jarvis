@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JARVIS HUD</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div id="app" class="hud state-armed">
+        <div class="noise"></div>
+        <div class="vignette"></div>
+
+        <header class="topbar">
+            <div class="top-left">
+                <div class="small-label">SYSTEM</div>
+                <div class="small-value" id="stateText">ARMED</div>
+            </div>
+            <div class="clock-wrap">
+                <div class="clock-time" id="clockTime">00:00:00</div>
+                <div class="clock-date" id="clockDate">---</div>
+            </div>
+            <div class="top-right">
+                <div class="small-label">LOCALHOST</div>
+                <div class="small-value">JARVIS HUD</div>
+            </div>
+        </header>
+
+        <main class="scene">
+            <aside class="side side-left panel">
+                <div class="panel-title">ACTIVITY</div>
+                <div class="stack">
+                    <div class="metric">
+                        <span>Mode</span><strong id="modeLabel">Armed</strong>
+                    </div>
+                    <div class="metric">
+                        <span>Voice</span><strong>Realtime</strong>
+                    </div>
+                    <div class="metric">
+                        <span>Input</span><strong>Push-to-Talk</strong>
+                    </div>
+                </div>
+                <div class="ring-mini">
+                    <div class="ring-mini-inner"></div>
+                </div>
+            </aside>
+
+            <section class="center-stage">
+                <div class="hud-shell">
+                    <div class="orbital orbital-1"></div>
+                    <div class="orbital orbital-2"></div>
+                    <div class="orbital orbital-3"></div>
+
+                    <div class="bracket bracket-left"></div>
+                    <div class="bracket bracket-right"></div>
+                    <div class="crosshair crosshair-h"></div>
+                    <div class="crosshair crosshair-v"></div>
+
+                    <div class="core-wrap">
+                        <div class="core-glow"></div>
+                        <div class="core-ring ring-a"></div>
+                        <div class="core-ring ring-b"></div>
+                        <div class="core-ring ring-c"></div>
+                        <div class="core-ring ring-d"></div>
+                        <div class="core-dot"></div>
+                    </div>
+
+                    <div class="arc arc-a"></div>
+                    <div class="arc arc-b"></div>
+                    <div class="arc arc-c"></div>
+                    <div class="arc arc-d"></div>
+
+                    <div class="status-chip" id="statusChip">STANDBY</div>
+                </div>
+
+                <div class="waveform" id="waveform"></div>
+            </section>
+
+            <aside class="side side-right panel">
+                <div class="panel-title">INTERFACE</div>
+                <div class="schematic">
+                    <div class="disc-box">
+                        <div class="disc-outer"></div>
+                        <div class="disc-groove groove-1"></div>
+                        <div class="disc-groove groove-2"></div>
+                        <div class="disc-arm"></div>
+                    </div>
+                </div>
+                <div class="panel-foot">DESKTOP AVATAR ONLINE</div>
+            </aside>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-line"></div>
+            <div class="footer-text">MARK XLII / DESKTOP VISUALIZATION</div>
+            <div class="footer-line"></div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
