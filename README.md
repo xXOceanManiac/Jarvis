@@ -8,12 +8,10 @@ It integrates voice, system control, screen awareness, and gesture-based input i
 ---
 
 ## 🖥️ Interface Preview
-
 ### Full HUD
-![Jarvis HUD Full](assets/hud_full.png)
-
+<img width="1376" height="1039" alt="hud_full" src="https://github.com/user-attachments/assets/34baa243-b995-43dd-b7bf-004a65720ca7" />
 ### Compact HUD
-![Jarvis HUD Compact](assets/hud_compact.png)
+<img width="861" height="616" alt="hud_compact" src="https://github.com/user-attachments/assets/ff1c924a-7b7d-470c-9066-5ddb5f915eb4" />
 
 ---
 
