@@ -19,7 +19,7 @@ It integrates voice, system control, screen awareness, and gesture-based input i
 ## ⚙️ Current Capabilities (v5.1)
 
 ### 🎤 Voice Assistant Core
-- Push-to-talk interaction (space bar)
+- Push-to-talk interaction (alt key)
 - Speech-to-text via OpenAI Realtime API
 - Natural language understanding
 - Spoken responses
@@ -128,7 +128,7 @@ source .venv/bin/activate
 
 ### 3. Install dependencies
 ```bash
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 ### 4. Configure environment variables
@@ -138,7 +138,7 @@ Create a `.env` file in the root directory:
 ```env
 OPENAI_API_KEY=your_key_here
 HOME_ASSISTANT_URL=your_url   # optional
-HOME_ASSISTANT_TOKEN=your_token   # optional
+HOME_ASSISTANT_API_KEY=your_token   # optional
 ```
 
 ### 5. Add MediaPipe model
