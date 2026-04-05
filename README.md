@@ -1,5 +1,4 @@
-README.md (Jarvis v5.1)
-# Jarvis v5.1
+# 🧠 Jarvis v5.1
 
 A local, voice-driven desktop assistant built for real-world control on Linux.
 
@@ -8,18 +7,26 @@ It integrates voice, system control, screen awareness, and gesture-based input i
 
 ---
 
-## Current Capabilities (v5.1)
+## 🖥️ Interface Preview
 
-### Voice Assistant Core
+### Full HUD
+![Jarvis HUD Full](assets/hud_full.png)
+
+### Compact HUD
+![Jarvis HUD Compact](assets/hud_compact.png)
+
+---
+
+## ⚙️ Current Capabilities (v5.1)
+
+### 🎤 Voice Assistant Core
 - Push-to-talk interaction (space bar)
 - Speech-to-text via OpenAI Realtime API
 - Natural language understanding
 - Spoken responses
 - Low-friction command execution
 
----
-
-### Deterministic Tool Execution
+### ⚡ Deterministic Tool Execution
 Jarvis can reliably trigger local actions such as:
 - Opening applications (VS Code, Chrome, Spotify, etc.)
 - Opening URLs
@@ -28,72 +35,63 @@ Jarvis can reliably trigger local actions such as:
 
 All critical actions are routed deterministically to avoid hallucinated behavior.
 
----
-
-### Screen Awareness
+### 👁️ Screen Awareness
 - Captures screenshots of the current desktop
 - Uses vision-based reasoning to understand what’s on screen
 - Enables context-aware commands
 
-Note: This currently introduces some latency and is being optimized.
+> ⚠️ Currently introduces some latency and is being optimized.
 
----
-
-### Camera Perception
+### 📷 Camera Perception
 - Uses `/dev/video0` for camera input
 - Supports real-time hand tracking via MediaPipe
-- Camera feed is **hidden from the user** during operation
+- Camera feed is hidden from the user during operation
 
----
-
-### Gesture Control System
+### ✋ Gesture Control System
 Fully functional gesture-based mouse control with:
-
 - Hand tracking using MediaPipe
 - Cursor movement mapped to hand position
 - Pinch gesture for click
 - Drag support
 - Scroll gestures
 - Screenshot gesture
-- On-screen hand overlay (instead of camera preview)
+- On-screen hand overlay instead of camera preview
 - Bottom-left status indicator
 
 This runs as a separate subsystem and integrates cleanly with the desktop.
 
----
+### 🖥️ Desktop HUD
+- Visual Jarvis HUD with logs output and system metric readouts
+- CPU load, memory usage, network download, and network upload display
+- Visual state updates:
+  - idle = blue
+  - processing = purple
+  - speaking = orange
+- Works with tiling/window managers (tested on Krohnkite)
+- Automatically switches to compact mode below ~1/4 screen size
 
-### Desktop HUD
-- Visual Jarvis HUD with simple logs output and system metric readouts (CPU load, Memory usage, Net Download, Net Upload)
-- Visual updates for state changes (idle = blue, processing = purple, speaking = orange)
-- HUD works with window managers (tested on Krohnkite) 
-- When HUD drops below 1/4 screen, layout switches to Compact Mode (kinda cool).
+### 🧩 Gesture Overlay UI
+- Holographic-style hand overlay
+- No visible camera feed
+- Minimal, non-intrusive feedback layer
 
----
-
-### Desktop Overlay "Holographic" Gesture Control
-- Visual hand overlay instead of visible camera feed
-- Minimal UI for gesture feedback
-- Designed to stay out of the way while remaining informative
-
----
-
-### Home Assistant Integration
+### 🏠 Home Assistant Integration
 - Executes scripts via API
-- Supports real-world control (lights, devices, etc.)
-- Deterministic routing (no guessing)
+- Controls real-world devices
+- Deterministic execution (no guessing)
 
 ---
 
-## System Environment
+## 💻 System Environment
 
 - **OS:** Ubuntu (KDE Plasma)
 - **Python:** 3.12
 - **Runtime:** Local desktop environment
-- **Assistant style:** Voice-first, low-friction execution
+- **Assistant Style:** Voice-first, low-friction execution
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 ```text
 Jarvis.v5.1/
@@ -111,94 +109,121 @@ Jarvis.v5.1/
 │   └── hand_landmarker.task
 ├── screenshots/
 ├── logs/
+```
 
+---
 
+## ⚙️ Setup
 
-Setup
-
-1. Clone the repository
-
-git clone <https://github.com/xXOceanManiac/Jarvis>
+### 1. Clone the repository
+```bash
+git clone https://github.com/xXOceanManiac/Jarvis.git
 cd Jarvis.v5.1
+```
 
-2. Create virtual environment
-
+### 2. Create a virtual environment
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
+```
 
-3. Install dependencies
+### 3. Install dependencies
+```bash
+pip install requirements.txt
+```
 
-pip install openai opencv-python mediapipe pyautogui pillow mss pyside6
+### 4. Configure environment variables
 
-4. Environment Variables
+Create a `.env` file in the root directory:
 
-Create a .env file:
-
+```env
 OPENAI_API_KEY=your_key_here
-HOME_ASSISTANT_URL=your_url ***Not needed
-HOME_ASSISTANT_TOKEN=your_token ***Not needed
+HOME_ASSISTANT_URL=your_url   # optional
+HOME_ASSISTANT_TOKEN=your_token   # optional
+```
 
-5. Add MediaPipe Model
+### 5. Add MediaPipe model
 
-Place the hand tracking model here:
+Place the model here:
 
+```text
 models/hand_landmarker.task
-Or update model_path in gesture_service.py
+```
 
+Or update the path inside:
 
+```text
+gesture_control/gesture_service.py
+```
 
-Running Jarvis:
+---
 
-Start the assistant
+## 🚀 Running Jarvis
+
+### Start core assistant
+```bash
 python3 main.py
+```
 
-Start the HUD
+### Start desktop HUD
+```bash
 python3 jarvis_desktop_hud.py
+```
 
-Start gesture control
+### Start gesture control
+```bash
 cd gesture_control
 python3 gesture_service.py
+```
 
+---
 
-Known Limitations:
+## ⚠️ Known Limitations
 
-Screen context checks introduce noticeable latency
-No workspace sandbox for code generation yet
-Gesture system requires tuning depending on lighting and camera position\
+- Screen context checks introduce noticeable latency  
+- No isolated workspace sandbox for code execution (yet)  
+- Gesture system requires tuning based on:
+  - lighting conditions  
+  - camera positioning  
 
+---
 
-Design Philosophy:
+## 🧠 Design Philosophy
 
 Jarvis v5.1 is built around:
 
-Local-first execution
-Deterministic tool routing
-Minimal UI friction
-Real control over the machine
-No fake actions or hallucinated results
-What This Version Is
+- Local-first execution  
+- Deterministic tool routing  
+- Minimal UI friction  
+- Real control over the machine  
+- No fake actions or hallucinated results  
 
+---
 
-Jarvis v5.1 is a functional foundation:
+## 📦 What This Version Is
 
-reliable voice control
-real desktop interaction
-working gesture system
-integrated smart home control
+Jarvis v5.1 is a functional foundation featuring:
 
+- Reliable voice control  
+- Real desktop interaction  
+- Working gesture system  
+- Integrated smart home control  
 
-What This Version Is NOT (Yet):
+---
 
-Not a full autonomous agent (yet)
-Not a planner/executor system (yet)
-Not a coding assistant (yet)
-Not a CAD system (yet)
+## 🚧 What This Version Is NOT (Yet)
 
+- ❌ Full autonomous agent  
+- ❌ Planner / executor system  
+- ❌ Coding assistant  
+- ❌ CAD generation system  
 
+---
 
+## 🧑‍💻 Author
 
-Author
+**Tate Lehenbauer**
 
-Built by Tate Lehenbauer.
+This project is part of a larger vision:
 
-This project is part of a larger vision to create a fully capable local AI assistant that operates with real control, real awareness, and real execution.
+> Building a fully capable local AI assistant with real control, real awareness, and real execution.
